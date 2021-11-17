@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: 'postgres'
+  password: 'root'
+  pool: 5
+  timeout: 5000
+  host: 'localhost'
+
+development:
+  <<: *default
+  database: 'pg_app_development'
+
+test:
+  <<: *default
+  database: 'pg_app_test'
+
+production:
+  <<: *default
+  database: 'pg_app_production'

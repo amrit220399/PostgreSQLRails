@@ -1,0 +1,72 @@
+<div class="container">
+<div class="card">
+    <div class="card-panel hoverable">
+      <div class="card-content">
+        <h3>Sign Up</h3>
+
+<%= form_with(model: @user) do |form| %>
+
+<div class="row">
+    <div class="input-field col s12 m6">
+        <%= form.label :first_name %><br>
+        <%= form.text_field :first_name %>
+    </div>
+    <div class="input-field col s12 m6">
+        <%= form.label :last_name %><br>
+        <%= form.text_field :last_name %>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :date_of_birth %><br>
+        <%= form.date_field :date_of_birth %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :mobile %><br>
+        <%= form.text_field :mobile, type: "number" %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :email %><br>
+        <%= form.text_field :email, type: "email" %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :password %><br>
+        <%= form.password_field :password %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :password_confirmation %><br>
+        <%= form.password_field :password_confirmation %>
+    </div>
+</div>
+
+<button class="btn waves-effect waves-light" type="submit" name="action"> 
+    <%= form.submit "SignUp" , class: "white-text" %>
+          <i class="material-icons right">send</i>
+    </button>
+
+<button class="btn waves-effect waves-light">
+        Cancel
+        <i class="material-icons right">send</i>
+</button>
+<br/><br/>
+<small>Already Have an Account?</small>
+<big><a href="/account/signin">Sign In</a></big>
+<% end %>
+</div>
+</div>
+</div>
+</div>

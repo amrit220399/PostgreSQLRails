@@ -1,0 +1,38 @@
+<div class="container">
+<div class="card">
+    <div class="card-panel hoverable">
+      <div class="card-content">
+        <h3>Reset your password</h3>
+
+<%= form_with  do |form| %>
+
+
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :password %><br>
+        <%= form.password_field :password %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :password_confirmation %><br>
+        <%= form.password_field :password_confirmation %>
+    </div>
+</div>
+
+
+
+
+<button class="btn waves-effect waves-light" type="submit" name="action"> 
+    <%= form.submit "Reset" , class: "white-text" %>
+          <i class="material-icons right">send</i>
+    </button>
+
+
+<% end %>
+</div>
+</div>
+</div>
+</div>
