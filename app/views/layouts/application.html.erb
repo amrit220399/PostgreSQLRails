@@ -16,15 +16,18 @@
       <div class="nav-wrapper white">
         <a href="/home/index" class="brand-logo black-text"> UserAuth </a>
         <ul class="right hide-on-med-and-down">
+         <li><a href="/home/about">About Us</a></li>
+          <li><a href="/home/contact">Contact Us</a></li>
           <% if session[:user].nil? %>
          <li><a href="/account/signup">Sign Up</a></li>
          <li><a href="/account/signin">Sign In</a></li>
           <% else %>
+          
+          <li><a href="/profile/edit">Edit Profile</a></li>
+          <li><a href="/password/reset">Change Password</a></li>
           <li><a href="/account/signout">Sign Out</a></li>
           <% end %>
-          <li><a href="/home/about">About WriteWall</a></li>
-          <li><a href="/home/contact">Contact Us</a></li>
-          <!-- Dropdown Trigger -->
+  
           
         </ul>
       </div>

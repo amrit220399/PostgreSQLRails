@@ -5,46 +5,60 @@
         <h3>Edit Profile</h3>
 
 <%= form_with  do |form| %>
+
+
+
+
 <div class="row">
     <div class="input-field col s6 m6">
-        <%= form.label :pic ,"Change your profile Image:" %><br/><br/>
-        <%= form.file_field :pic %>
+        <%= form.label :avatar ,"Change your profile Image:" %><br/><br/>
+        <%= form.file_field :avatar %>
     </div>
 
     <div class="input-field col s6 m6">
-         <%= image_tag("avatar.png", alt: "No profile picture", width: "120px", height: "120px") %>
+            <% if @curr_user.avatar.attached? %>
+         <%= image_tag(@curr_user.avatar, alt: "No profile picture", width: "150px", height: "150px") %>
+            <% else %>
+        <%= image_tag("avatar.png", alt: "No profile picture", width: "120px", height: "120px") %>
+            <% end %>
     </div>
 
 </div>
 
 <div class="row">
     <div class="input-field col s12">
-        <%= form.label :fname, "First Name" %><br/>
-        <%= form.text_field :fname %>
+        <%= form.label :first_name, "First Name" %><br/>
+        <%= form.text_field :first_name, value: @curr_user.first_name %>
     </div>
 </div>
 
 <div class="row">
     <div class="input-field col s12">
-        <%= form.label :lname , "Last Name" %><br/>
-        <%= form.text_field :lname %>
+        <%= form.label :last_name , "Last Name" %><br/>
+        <%= form.text_field :last_name, value: @curr_user.last_name %>
     </div>
 </div>
 
 <div class="row">
     <div class="input-field col s12">
-        <%= form.label :dob , "Date of Birth" %><br/>
-        <%= form.date_field :dob %>
+        <%= form.label :date_of_birth , "Date of Birth" %><br/>
+        <%= form.date_field :date_of_birth , value: @curr_user.date_of_birth %>
     </div>
 </div>
 
 <div class="row">
     <div class="input-field col s12">
         <%= form.label :mobile , "Mobile" %><br/>
-        <%= form.text_field :mobile, type: "number" %>
+        <%= form.text_field :mobile, type: "number", value: @curr_user.mobile %>
     </div>
 </div>
 
+<div class="row">
+    <div class="input-field col s12">
+        <%= form.label :password , "Password" %><br/>
+        <%= form.password_field :password %>
+    </div>
+</div>
 
 <button class="btn waves-effect waves-light" type="submit" name="action"> 
     <%= form.submit "Update" , class: "white-text" %>

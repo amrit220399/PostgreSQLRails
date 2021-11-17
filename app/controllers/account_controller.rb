@@ -1,11 +1,16 @@
 class AccountController < ApplicationController
+  
+  
   def signup
+    @user = User.new
     if request.post?
-      @new_user = User.new(user_params)
-      if @new_user.save
+      @user = User.new(user_params)
+      puts @user.inspect
+      puts "======================"
+      if @user.save
         redirect_to :action => :signin
         flash[:notice] = "Account Created Successfully! Please check your inbox."
-        NotifierMailer.welcome_email(@new_user).deliver
+        NotifierMailer.welcome_email(@user).deliver
       else
         render :action => :signup
       end
@@ -18,7 +23,8 @@ class AccountController < ApplicationController
       if @user
         redirect_to :controller => :home ,:action => :index
         flash[:notice] = "Logged In as "  + @user.email
-        session[:user] = @user
+        session[:user] = @user.id
+      
       else
         flash[:notice] = "Invalid Email/Password"
         redirect_to  :action => :signin
@@ -34,7 +40,7 @@ class AccountController < ApplicationController
 
   private
   def user_params
-    params.permit(:first_name,:last_name,:date_of_birth,:mobile,:email,:password,:hashed_password)
+    params.require(:user).permit(:first_name,:last_name,:date_of_birth,:mobile,:email,:password,:hashed_password)
   end
 
   

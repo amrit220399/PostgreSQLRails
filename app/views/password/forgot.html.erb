@@ -3,8 +3,8 @@
     <div class="card-panel hoverable">
       <div class="card-content">
         <h3>Forgot your password</h3>
-
-<%= form_with scope: :forgot, url: password_reset_path, local: true do |form|  %>
+        <h6><%= flash[:notice] %></h6>
+<%= form_with do |form|  %>
 
 
 
